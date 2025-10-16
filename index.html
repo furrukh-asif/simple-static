@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Simple Static Site</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        nav {
+            background: #333;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #555;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+            background: #f4f4f4;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Static Site</h1>
+        <p>Built with HTML, CSS, and a sprinkle of JavaScript</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <div class="hero">
+            <h2>This is a Simple Static Website</h2>
+            <p>No server-side processing required! Just pure HTML, CSS, and JavaScript.</p>
+            <button onclick="showMessage()">Click Me!</button>
+        </div>
+
+        <div class="content">
+            <div class="card">
+                <h3>Fast Loading</h3>
+                <p>Static sites load incredibly quickly because they're just files served directly from the server or CDN.</p>
+            </div>
+
+            <div class="card">
+                <h3>Secure</h3>
+                <p>With no database or server-side code, there's a much smaller attack surface for security vulnerabilities.</p>
+            </div>
+
+            <div class="card">
+                <h3>Easy to Host</h3>
+                <p>You can host static sites almost anywhere - GitHub Pages, Netlify, Vercel, or any simple web server.</p>
+            </div>
+        </div>
+
+        <section id="counter">
+            <h2>Interactive Counter (Client-Side JavaScript)</h2>
+            <p>Count: <span id="count">0</span></p>
+            <button onclick="incrementCounter()">Increment</button>
+            <button onclick="resetCounter()">Reset</button>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 My Static Site. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let count = 0;
+
+        function showMessage() {
+            alert('Hello! This JavaScript runs in your browser, not on a server!');
+        }
+
+        function incrementCounter() {
+            count++;
+            document.getElementById('count').textContent = count;
+        }
+
+        function resetCounter() {
+            count = 0;
+            document.getElementById('count').textContent = count;
+        }
+
+        // Add smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = this.getAttribute('href');
+                if (target !== '#home') {
+                    alert('This would scroll to: ' + target);
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
